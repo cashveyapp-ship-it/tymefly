@@ -1,0 +1,52 @@
+﻿TYMEFLY Production Checklist
+
+Android:
+[ ] App ID is com.an2app.tymefly
+[ ] App name shows TYMEFLY
+[ ] Firebase Android app connected
+[ ] google-services.json exists
+[ ] Camera permission added
+[ ] Microphone permission added
+[ ] Photo/video permissions added
+[ ] Notification permission added
+[ ] Release signing configured
+[ ] App bundle builds successfully
+[ ] Play Console subscriptions created
+
+iOS:
+[ ] Bundle ID is com.an2app.tymefly
+[ ] App name shows TYMEFLY
+[ ] Firebase iOS app connected
+[ ] GoogleService-Info.plist exists
+[ ] Camera permission text added
+[ ] Microphone permission text added
+[ ] Photo library permission text added
+[ ] Apple signing configured
+[ ] App Store subscriptions created
+[ ] TestFlight build uploaded
+
+Firebase:
+[ ] Auth enabled
+[ ] Firestore enabled
+[ ] Storage enabled
+[ ] Cloud Functions deployed
+[ ] Firestore rules deployed
+[ ] Storage rules deployed
+[ ] OpenAI secret set
+[ ] Email delivery method chosen later
+
+Core App:
+[ ] Login/Register works
+[ ] Username update works
+[ ] Password reset works
+[ ] Delete account works
+[ ] Add trusted contacts works
+[ ] Create text TymeFly works
+[ ] Photo upload works
+[ ] Video upload works
+[ ] Timeline works
+[ ] Capsule detail works
+[ ] Reschedule works
+[ ] Edit message works
+[ ] AI Future Letter works
+[ ] Subscription screen loads

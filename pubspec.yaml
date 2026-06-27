@@ -1,0 +1,75 @@
+name: tymefly
+description: TYMEFLY - Capture now. Deliver later.
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.10.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+
+  firebase_core: ^4.9.0
+  firebase_auth: ^6.5.1
+  cloud_firestore: ^6.4.1
+  firebase_storage: ^13.4.1
+  firebase_messaging: ^16.2.2
+  cloud_functions: ^6.0.4
+
+  image_picker: ^1.2.2
+  camera: ^0.12.0+1
+  file_picker: ^11.0.2
+  path_provider: ^2.1.5
+  permission_handler: ^12.0.1
+
+  intl: ^0.20.2
+  uuid: ^4.5.3
+  provider: ^6.1.5+1
+  google_fonts: ^6.3.2
+  flutter_svg: ^2.2.2
+  lottie: ^3.3.2
+  url_launcher: ^6.3.2
+  share_plus: ^12.0.1
+  shared_preferences: ^2.5.5
+  
+
+  in_app_purchase: ^3.2.3
+  speech_to_text: ^7.4.0
+  avatar_glow: ^3.0.1
+  flutter_tts: ^4.2.5
+  video_player: ^2.11.1
+  firebase_app_check: 0.4.4+1
+  flutter_local_notifications: ^21.0.0
+  video_compress: ^3.1.4
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^6.0.0
+  flutter_native_splash: ^2.4.7
+  flutter_launcher_icons: ^0.14.4
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/logo/
+    - assets/images/
+
+flutter_native_splash:
+  color: "#FFFFFF"
+  image: assets/logo/butterfly.png
+  android: true
+  ios: true
+  web: false
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/logo/app_icon.png"
+  adaptive_icon_background: "#FFFFFF"
