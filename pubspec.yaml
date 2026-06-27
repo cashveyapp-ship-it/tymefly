@@ -1,4 +1,4 @@
-name: tymefly
+﻿name: tymefly
 description: TYMEFLY - Capture now. Deliver later.
 publish_to: 'none'
 
@@ -55,6 +55,9 @@ dev_dependencies:
   flutter_launcher_icons: ^0.14.4
 
 flutter:
+  config:
+    enable-swift-package-manager: false
+
   uses-material-design: true
 
   assets:
@@ -73,3 +76,4 @@ flutter_launcher_icons:
   ios: true
   image_path: "assets/logo/app_icon.png"
   adaptive_icon_background: "#FFFFFF"
+
