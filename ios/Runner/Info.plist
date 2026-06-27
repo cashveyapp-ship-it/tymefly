@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
@@ -13,7 +13,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>TYMEFLY</string>
+	<string>tymefly</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -45,16 +45,5 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
-    <key>NSCameraUsageDescription</key>
-    <string>TYMEFLY needs camera access so you can record video memories to release in the future.</string>
-    <key>NSMicrophoneUsageDescription</key>
-    <string>TYMEFLY needs microphone access so your video memories can include your voice.</string>
-    <key>NSPhotoLibraryUsageDescription</key>
-    <string>TYMEFLY needs photo library access so you can choose photos and videos to include in future memories.</string>
-    <key>NSPhotoLibraryAddUsageDescription</key>
-    <string>TYMEFLY may save generated memory content to your photo library when you choose to export it.</string>
 </dict>
 </plist>
-
-
-
