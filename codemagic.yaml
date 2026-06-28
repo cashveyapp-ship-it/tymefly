@@ -4,73 +4,32 @@ workflows:
     instance_type: mac_mini_m2
     max_build_duration: 60
 
+    integrations:
+      app_store_connect: CodemagicScanbite
+
     environment:
       flutter: stable
       xcode: latest
       cocoapods: default
-      vars:
-        BUNDLE_ID: com.an2app.tymefly
-        TEAM_ID: S396HHK846
-        ASC_ISSUER_ID: c39b009b-44cf-4128-948e-2d4e375a5445
-        ASC_KEY_ID: 7ZN5797WYL
+      ios_signing:
+        distribution_type: app_store
+        bundle_identifier: com.an2app.tymefly
 
     scripts:
       - name: Get packages
         script: flutter pub get
 
-      - name: Initialize keychain
-        script: keychain initialize
-
-      - name: Fetch signing files
-        script: |
-          app-store-connect fetch-signing-files "$BUNDLE_ID" \
-            --create \
-            --type IOS_APP_STORE \
-            --platform IOS \
-            --issuer-id "$ASC_ISSUER_ID" \
-            --key-id "$ASC_KEY_ID" \
-            --private-key @env:AUTH_KEY
-
-      - name: Add certificates to keychain
-        script: keychain add-certificates
-
-      - name: Apply signing to Xcode project
-        script: xcode-project use-profiles
-
-      - name: Create export options
-        script: |
-          cat > /tmp/export_options.plist <<EOF
-          <?xml version="1.0" encoding="UTF-8"?>
-          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-          <plist version="1.0">
-          <dict>
-            <key>method</key>
-            <string>app-store</string>
-            <key>teamID</key>
-            <string>S396HHK846</string>
-            <key>signingStyle</key>
-            <string>manual</string>
-            <key>destination</key>
-            <string>export</string>
-            <key>uploadBitcode</key>
-            <false/>
-            <key>compileBitcode</key>
-            <false/>
-          </dict>
-          </plist>
-          EOF
+      - name: Install CocoaPods
+        script: cd ios && pod install
 
       - name: Build IPA
-        script: flutter build ipa --release --export-options-plist=/tmp/export_options.plist
+        script: flutter build ipa --release
 
     artifacts:
       - build/ios/ipa/*.ipa
-      - build/ios/archive/*.xcarchive
 
     publishing:
       app_store_connect:
-        issuer_id: $ASC_ISSUER_ID
-        key_id: $ASC_KEY_ID
-        private_key: $AUTH_KEY
+        auth: integration
         submit_to_testflight: true
         submit_to_app_store: false
