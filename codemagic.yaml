@@ -1,4 +1,4 @@
-﻿workflows:
+workflows:
   ios-testflight:
     name: TYMEFLY iOS TestFlight
     instance_type: mac_mini_m2
@@ -18,21 +18,25 @@
       - name: Get packages
         script: flutter pub get
 
+      - name: Initialize keychain
+        script: keychain initialize
+
       - name: Fetch signing files
         script: |
-          app-store-connect fetch-signing-files "$BUNDLE_ID" \
-            --create \
-            --type IOS_APP_STORE \
-            --platform IOS \
-            --issuer-id "$ASC_ISSUER_ID" \
-            --key-id "$ASC_KEY_ID" \
-            --private-key @env:AUTH_KEY \
-            --certificate-key @env:CERTIFICATE_KEY
+          app-store-connect fetch-signing-files $env:BUNDLE_ID `
+            --create `
+            --type IOS_APP_STORE `
+            --platform IOS `
+            --issuer-id $env:ASC_ISSUER_ID `
+            --key-id $env:ASC_KEY_ID `
+            --private-key "@env:AUTH_KEY"
+        shell: powershell
 
-      - name: Set up keychain
-        script: |
-          keychain initialize
-          keychain add-certificates
+      - name: Add certificates to keychain
+        script: keychain add-certificates
+
+      - name: Apply signing to Xcode project
+        script: xcode-project use-profiles
 
       - name: Create export options
         script: |
@@ -46,7 +50,7 @@
             <key>teamID</key>
             <string>S396HHK846</string>
             <key>signingStyle</key>
-            <string>automatic</string>
+            <string>manual</string>
             <key>destination</key>
             <string>export</string>
             <key>uploadBitcode</key>
